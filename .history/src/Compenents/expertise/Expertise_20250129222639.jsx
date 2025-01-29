@@ -1,6 +1,6 @@
 import React from 'react';
 import { Code, Database, Smartphone, Palette, Cloud } from 'lucide-react';
-import image from '../../image/theme.jpg'
+
 export default function ExpertiseSection() {
   const expertiseCards = [
     {
@@ -38,7 +38,7 @@ export default function ExpertiseSection() {
   return (
     <div className="relative min-h-screen bg-[#1B202A]" id="expertise">
       <img
-        src={image}
+        src="/api/placeholder/1920/1080"
         alt="Background theme"
         className="w-full h-full object-cover absolute inset-0"
       />

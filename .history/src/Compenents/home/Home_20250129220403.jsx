@@ -27,11 +27,7 @@ export default function Home() {
   return (
     <div id='home' className="relative min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
       {/* Background Image */}
-      <img 
-        src={image}
-        alt="background" 
-        className="absolute w-full h-full object-cover object-center "
-      />
+      <img src={image} alt="" className="absolute w-full h-full object-cover object-center" />
       
       {/* Animated stars */}
       {[...Array(20)].map((_, i) => (
@@ -56,7 +52,7 @@ export default function Home() {
         <div className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-300 to-orange-400 blur-sm animate-bounce"></div>
       </div>
 
-      {/* Interactive sun */}
+      {/* Interactive sun - Adjusted size for mobile */}
       <div
         className="absolute z-30 transition-all duration-300 ease-out"
         style={{
@@ -87,56 +83,33 @@ export default function Home() {
           <Smartphone className="w-5 h-5 md:w-8 md:h-8 text-orange-400" />
         </div>
 
-        {/* Enhanced Skills Section */}
-        <div className="mt-8 md:mt-12 flex gap-3 md:gap-4 justify-center flex-wrap px-2 md:px-0">
-          {['React', 'Node.js', 'Web', 'php', 'python', 'UI/UX', '3D'].map((skill, index) => (
-            <div
-              key={skill}
-              className="group relative px-4 md:px-6 py-2 md:py-3 text-sm md:text-base"
-              style={{
-                animation: `fadeInUp 0.5s ease-out ${index * 0.1}s forwards`,
-                opacity: 0,
-                transform: 'translateY(20px)',
-              }}
-            >
-              {/* Background container with enhanced hover effects */}
-              <div className="absolute inset-0 bg-slate-800/50 rounded-full border border-orange-400/30 
-                            transform transition-all duration-300 ease-out
-                            group-hover:scale-110 group-hover:border-orange-400 group-hover:bg-orange-400/20
-                            group-hover:shadow-lg group-hover:shadow-orange-400/20">
-                {/* Animated gradient border effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-yellow-400 opacity-0 
-                              group-hover:opacity-20 transition-opacity duration-300"></div>
-              </div>
+        {/* Skills - Reorganized for mobile */}
+        <div className="mt-8 md:mt-12 flex gap-2 md:gap-4 justify-center flex-wrap px-2 md:px-0">
+  {['React', 'Node.js', 'Web', 'UI/UX', '3D'].map((skill, index) => (
+    <div
+      key={skill}
+      className="px-3 md:px-4 py-1.5 md:py-2 bg-slate-800/50 rounded-full text-white text-sm md:text-base
+               border border-orange-400/30 hover:border-orange-400 transition-all duration-300 relative
+               hover:scale-105 hover:shadow-lg hover:shadow-orange-400/40 group overflow-hidden"
+      style={{
+        animation: `fadeInUp 0.5s ease-out ${index * 0.1}s forwards`,
+        opacity: 0,
+        transform: 'translateY(20px)',
+      }}
+    >
+      {/* Texte de la compétence */}
+      <span className="relative z-10">{skill}</span>
 
-              {/* Glowing dots effect */}
-              <div className="absolute -inset-1 bg-orange-400/0 rounded-full group-hover:bg-orange-400/10 
-                            transition-all duration-300 blur opacity-0 group-hover:opacity-100"></div>
+      {/* Effet de lueur au survol */}
+      <div className="absolute inset-0 bg-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
 
-              {/* Floating particles */}
-              {[...Array(3)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-1 h-1 bg-orange-400 rounded-full opacity-0 
-                            group-hover:opacity-100 transition-all duration-500"
-                  style={{
-                    left: `${50 + (i - 1) * 30}%`,
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    animation: `float${i + 1} 2s ease-in-out infinite`,
-                  }}
-                ></div>
-              ))}
-
-              {/* Skill text */}
-              <span className="relative z-10 text-white group-hover:text-orange-400 
-                             transition-all duration-300 inline-block
-                             group-hover:transform group-hover:scale-105">
-                {skill}
-              </span>
-            </div>
-          ))}
-        </div>
+      {/* Effet de lumière floue au survol */}
+      <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 bg-orange-400/20 blur-md"></div>
+      </div>
+    </div>
+  ))}
+</div>
       </div>
 
       <style jsx>{`
@@ -146,21 +119,13 @@ export default function Home() {
             transform: translateY(0);
           }
         }
-        @keyframes float1 {
-          0%, 100% { transform: translate(-50%, -50%); }
-          50% { transform: translate(-50%, -70%); }
-        }
-        @keyframes float2 {
-          0%, 100% { transform: translate(-50%, -50%); }
-          50% { transform: translate(-50%, -80%); }
-        }
-        @keyframes float3 {
-          0%, 100% { transform: translate(-50%, -50%); }
-          50% { transform: translate(-50%, -60%); }
-        }
         @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
         .animate-spin-slow {
           animation: spin-slow 20s linear infinite;
@@ -170,9 +135,15 @@ export default function Home() {
           animation: gradient 8s ease infinite;
         }
         @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
         }
       `}</style>
     </div>

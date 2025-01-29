@@ -1,19 +1,17 @@
 import React from 'react';
 import { Github, Linkedin, Twitter, Download } from 'lucide-react';
 import image from '../../../image/portflio.jpg'
-import theme from '../../../image/theme.jpg'
-
 
 export default function About() {
   const socialLinks = [
     { 
       icon: <Github className="w-6 h-6" />, 
-      href: "https://github.com/chouaiboo/cv-app",
+      href: "https://github.com",
       label: "GitHub"
     },
     { 
       icon: <Linkedin className="w-6 h-6" />, 
-      href: "https://www.linkedin.com/in/chouaib-elhaddad-81985a1aa/",
+      href: "https://linkedin.com",
       label: "LinkedIn"
     },
     { 
@@ -27,7 +25,7 @@ export default function About() {
     <div className="relative min-h-screen bg-[#1B202A]" id="about">
       {/* Background Image */}
       <img
-        src={theme}
+        src="/api/placeholder/1920/1080"
         alt="Background theme"
         className="w-full h-full object-cover absolute inset-0"
       />

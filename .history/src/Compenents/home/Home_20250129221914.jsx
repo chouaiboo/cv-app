@@ -30,7 +30,7 @@ export default function Home() {
       <img 
         src={image}
         alt="background" 
-        className="absolute w-full h-full object-cover object-center "
+        className="absolute w-full h-full object-cover object-center opacity-50"
       />
       
       {/* Animated stars */}

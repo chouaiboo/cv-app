@@ -8,12 +8,12 @@ export default function About() {
   const socialLinks = [
     { 
       icon: <Github className="w-6 h-6" />, 
-      href: "https://github.com/chouaiboo/cv-app",
+      href: "https://github.com",
       label: "GitHub"
     },
     { 
       icon: <Linkedin className="w-6 h-6" />, 
-      href: "https://www.linkedin.com/in/chouaib-elhaddad-81985a1aa/",
+      href: "https://linkedin.com",
       label: "LinkedIn"
     },
     { 
