@@ -52,14 +52,17 @@ export default function Home() {
             <div
               key={skill}
               className="px-4 py-2 bg-slate-800/50 rounded-full text-white text-sm md:text-base border border-orange-400/30 transition-all duration-300 relative overflow-hidden cursor-pointer 
-                         hover:border-orange-400 hover:shadow-lg hover:shadow-orange-400/40 hover:scale-110 before:content-[''] before:absolute before:inset-0 before:bg-orange-500/10 before:scale-0 hover:before:scale-100 before:transition-all before:duration-500"
+                         hover:border-orange-400 hover:shadow-lg hover:shadow-orange-400/40 hover:scale-105 group"
               style={{
                 animation: `fadeInUp 0.5s ease-out ${index * 0.1}s forwards`,
                 opacity: 0,
                 transform: 'translateY(20px)',
               }}
             >
-              {skill}
+              {/* Hover effect layer */}
+              <div className="absolute inset-0 bg-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+              {/* Skill text */}
+              <span className="relative z-10">{skill}</span>
             </div>
           ))}
         </div>
